@@ -200,11 +200,13 @@ public class ReliableMessageServiceImpl implements ReliableMessageService {
         long totalCount = messageRepository.count(transactionMessage);
         int lastPageNum = (int) (totalCount % pageCount);
         int totalPageCount = (int) (totalCount / pageCount);
-        if (pageNum > totalPageCount) {
-            return null;
-        }
+
         if (lastPageNum != 0) {
             totalPageCount += 1;
+        }
+
+        if (pageNum > totalPageCount) {
+            return null;
         }
         int skip = (pageNum - 1) * pageCount;
 

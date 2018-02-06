@@ -15,7 +15,7 @@ import java.util.Map;
  * @author zhongcheng_m@yeah.net
  * @version 1.0.0
  */
-public class ReliableMessageException extends Exception {
+public class ReliableMessageException extends RuntimeException {
 
     public static final String MESSAGE_IS_NULL = "2001";
 
